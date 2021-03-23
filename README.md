@@ -26,7 +26,7 @@ Name of feature: Map Retrieval
 
 Estimate of time needed to complete: 4 hours
 
-Start time: _____
+Start time: ?
 
 Finish time: _____
 
