@@ -17,7 +17,8 @@ class App extends React.Component {
       imgSrc: '',
       displayResults: false,
       displayError: null,
-      error: {}
+      error: {},
+      forecast: []
     }
 
   }
@@ -38,6 +39,7 @@ class App extends React.Component {
       this.setState({ displayError: true, error: error.message })
     }
   }
+
   render() {
     return (
       <>
@@ -61,9 +63,9 @@ class App extends React.Component {
               <Card.Text>
                 Longitude: {this.state.location.lon}
               </Card.Text>
-              <Forecast
-              >
-              </Forecast>
+              <Forecast/>
+          
+              
             </Card.Body>
           </Card>
         }

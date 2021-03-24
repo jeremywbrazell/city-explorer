@@ -10,18 +10,12 @@ class Forecast extends React.Component {
   }
 
   componentDidMount = async() => {
-    console.log('component did mount');
     const SERVER = 'http://localhost:3001';
     const weather = await axios.get(`${SERVER}/weather`);
-    console.log(weather);
-    const weatherListArray = weather.data.weather;
-    const cityData = weather.data.city;
-    // console.log({weatherListArray});
-    this.setState({ city: cityData });
-    this.setState({ weatherForecast: weatherListArray.weather})
-    console.log(weather.data.weather);
+    const forecastArray = weather.data.forecast;
+    this.setState({ weatherForecast: forecastArray });
+    console.log(this.state.forecast);
   }
-
   forecastRender() {
     const data = this.state.weatherForecast;
     console.log('xxxxxx', data);
