@@ -3,9 +3,10 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Map from './map.js';
-import Error from './error.js'
+import Error from './error.js';
+import Forecast from './forecast';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class App extends React.Component {
       searchQuery: '',
       imgSrc: '',
       displayResults: false,
-      displayError: false,
+      displayError: null,
       error: {}
     }
 
@@ -23,7 +24,7 @@ class App extends React.Component {
 
   getLocationInfo = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_MAP_KEY}&q=${this.state.searchQuery}&format=json`;
       const location = await axios.get(url);
       const locationArray = location.data;
@@ -32,9 +33,9 @@ class App extends React.Component {
         displayResults: true,
         imgSrc: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_MAP_KEY}&center=${locationArray[0].lat},${locationArray[0].lon}&zoom=13`
       });
-    }catch(error){
+    } catch (error) {
       console.error(error);
-      this.setState({displayError: true, error: error})
+      this.setState({ displayError: true, error: error.message })
     }
   }
   render() {
@@ -55,18 +56,23 @@ class App extends React.Component {
             <Card.Body>
               <Card.Title><h2>{this.state.location.display_name}</h2></Card.Title>
               <Card.Text>
-                <p>Latitude: {this.state.location.lat}</p>
-                <p>Longitude: {this.state.location.lon}</p>
+                Latitude: {this.state.location.lat}
               </Card.Text>
+              <Card.Text>
+                Longitude: {this.state.location.lon}
+              </Card.Text>
+              <Forecast
+              >
+              </Forecast>
             </Card.Body>
           </Card>
         }
         {this.state.displayError &&
-        <>
-          <Error handleError={this.state.error}
+          <>
+            <Error handleError={this.state.error}
 
-          ></Error>
-        </>
+            ></Error>
+          </>
         }
       </>
     )
