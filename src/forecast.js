@@ -15,7 +15,7 @@ const lat = this.props.location.lat;
 const lon = this.props.location.lon;
 
 
-    const SERVER = 'http://localhost:3001';
+    const SERVER = process.env.REACT_APP_BACKEND;
     const weather = await axios.get(`${SERVER}/weather?lat=${lat}&lon=${lon}`);
     // console.log(weather);
     const forecastArray = weather.data;

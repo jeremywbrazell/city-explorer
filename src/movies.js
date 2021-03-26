@@ -14,7 +14,7 @@ class Movies extends React.Component {
 
     componentDidMount = async () => {
         const mov = 'seattle';
-        const SERVER = 'http://localhost:3001';
+        const SERVER = process.env.REACT_APP_BACKEND;
         const movie = await axios.get(`${SERVER}/movies?movies=${mov}`);
         console.log(movie);
         const movieArray = movie.data;
