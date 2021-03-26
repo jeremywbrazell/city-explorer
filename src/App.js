@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Map from './map.js';
 import Error from './error.js';
 import Forecast from './forecast';
+import Movies from './movies';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,31 +44,36 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Form onSubmit={this.getLocationInfo} >
-          <input onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="city" />
-          <Button type="submit">explore!</Button>
-        </Form>
-        <h1>Welcome</h1>
+        <center>
+          <h1>Welcome To City Explorer</h1>
+          <Form onSubmit={this.getLocationInfo} >
+            <input onChange={(e) => this.setState({ searchQuery: e.target.value })} placeholder="city" />
+            <Button type="submit">explore!</Button>
+          </Form>
+
+        </center>
         {this.state.displayResults &&
+          <center>
           <Card style={{ width: '25rem' }}
-            bg='success'
-            text='secondary'
+            bg='info'
+            text='white'
           >
-            <Map imageSrc={this.state.imgSrc}>
-            </Map>
-            <Card.Body>
-              <Card.Title><h2>{this.state.location.display_name}</h2></Card.Title>
-              <Card.Text>
-                Latitude: {this.state.location.lat}
-              </Card.Text>
-              <Card.Text>
-                Longitude: {this.state.location.lon}
-              </Card.Text>
-              <Forecast/>
-          
-              
-            </Card.Body>
+              <Map imageSrc={this.state.imgSrc}>
+              </Map>
+              <Card.Body>
+                <Card.Title><h2>{this.state.location.display_name}</h2></Card.Title>
+                <Card.Text>
+                  Latitude: {this.state.location.lat}
+                </Card.Text>
+                <Card.Text>
+                  Longitude: {this.state.location.lon}
+                </Card.Text>
+                <Forecast />
+                <Movies />
+              </Card.Body>
           </Card>
+            </center>
+
         }
         {this.state.displayError &&
           <>

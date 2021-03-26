@@ -17,11 +17,17 @@ const lon = -122.3300624;
 
     const SERVER = 'http://localhost:3001';
     const weather = await axios.get(`${SERVER}/weather?lat=${lat}&lon=${lon}`);
-    console.log(weather);
+    // console.log(weather);
     const forecastArray = weather.data;
     this.setState({ weatherForecast: forecastArray });
-    console.log(this.state.weatherForecast);
+    // console.log(this.state.weatherForecast);
   }
+
+ 
+
+
+
+
   forecastRender() {
     const data = this.state.weatherForecast;
     console.log('xxxxxx', data);

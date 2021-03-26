@@ -1,6 +1,7 @@
-# City Explorer
 
-**Author**: Jeremy Brazell
+# Refactoring Front & Back End
+
+**Author**: Your Name Goes Here
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
@@ -19,15 +20,3 @@
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
-Time Estimates
-For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
-
-Name of feature: Map Retrieval
-
-Estimate of time needed to complete: 4 hours
-
-Start time: ?
-
-Finish time: _____
-
-Actual time needed to complete: _____
