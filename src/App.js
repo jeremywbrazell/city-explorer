@@ -19,7 +19,8 @@ class App extends React.Component {
       displayResults: false,
       displayError: null,
       error: {},
-      forecast: []
+      forecast: [],
+      movies: []
     }
 
   }
@@ -68,7 +69,9 @@ class App extends React.Component {
                 <Card.Text>
                   Longitude: {this.state.location.lon}
                 </Card.Text>
-                <Forecast />
+                <Forecast 
+                location = {this.state.location}
+                />
                 <Movies />
               </Card.Body>
           </Card>

@@ -15,14 +15,16 @@ class Movies extends React.Component {
     componentDidMount = async () => {
         const mov = 'seattle';
         const SERVER = 'http://localhost:3001';
-        const movie = await axios.get(`${SERVER}/movies?=${mov}`);
+        const movie = await axios.get(`${SERVER}/movies?movies=${mov}`);
+        console.log(movie);
         const movieArray = movie.data;
-        this.setState({ movieLists: movieArray });
+        this.setState({ movieArray });
     }
 
 
     movieRender = () => {
         const data = this.state.movieArray;
+        console.log(data);
         return (<ul>{data.map((item, index) => <li key={index}>{item.date}: {item.description}</li>)}</ul>)
 
     }

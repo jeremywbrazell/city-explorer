@@ -11,8 +11,8 @@ class Forecast extends React.Component {
 
   componentDidMount = async() => {
 // for testing purposes
-const lat = 47.6038321;
-const lon = -122.3300624;
+const lat = this.props.location.lat;
+const lon = this.props.location.lon;
 
 
     const SERVER = 'http://localhost:3001';
