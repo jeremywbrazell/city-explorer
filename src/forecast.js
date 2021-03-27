@@ -13,20 +13,15 @@ class Forecast extends React.Component {
 // for testing purposes
 const lat = this.props.location.lat;
 const lon = this.props.location.lon;
-
+console.log('soiboisbois;b', lat, lon);
 
     const SERVER = process.env.REACT_APP_BACKEND;
     const weather = await axios.get(`${SERVER}/weather?lat=${lat}&lon=${lon}`);
-    // console.log(weather);
+    console.log(weather);
     const forecastArray = weather.data;
     this.setState({ weatherForecast: forecastArray });
     // console.log(this.state.weatherForecast);
   }
-
- 
-
-
-
 
   forecastRender() {
     const data = this.state.weatherForecast;
