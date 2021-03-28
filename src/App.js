@@ -31,6 +31,7 @@ class App extends React.Component {
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_MAP_KEY}&q=${this.state.searchQuery}&format=json`;
       const location = await axios.get(url);
       const locationArray = location.data;
+      console.log(location, locationArray);
       this.setState({
         location: locationArray[0],
         displayResults: true,
