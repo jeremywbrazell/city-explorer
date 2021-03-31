@@ -1,36 +1,25 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+
 
 class Movies extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            movieArray: []
+            movieArrayFromApp: this.props.movies
 
         }
 
     }
 
-    componentDidMount = async () => {
-        const mov = 'seattle';
-        const SERVER = process.env.REACT_APP_BACKEND;
-        const movie = await axios.get(`${SERVER}/movies?movies=${mov}`);
-        console.log(movie);
-        const movieArray = movie.data;
-        this.setState({ movieArray });
-    }
-
-
     movieRender = () => {
-        const data = this.state.movieArray;
+        const data = this.props.movies;
         console.log(data);
         return (<ul>{data.map((item, index) => <li key={index}>{item.date}: {item.description}</li>)}</ul>)
 
     }
-
-
     render() {
+        console.log(this.props);
         return (
             <>
                 <h2>Movies</h2>
